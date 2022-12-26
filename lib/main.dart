@@ -8,21 +8,62 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.red,
+    return MaterialApp(
+      title: "My Product",
+      theme: ThemeData(
+        primarySwatch: Colors.cyan,
       ),
-      child: Center(
+      home: MyHomePage(),
+    );
+  }
+}
+class MyHomePage extends StatefulWidget {
 
-      child: Image.asset('assets/images/2.png',
-          height: 100,
-        width: 100.0,
 
 
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  String name ="Prince!";
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Learning",
+
+        )
       ),
+      body: Column(
+        children: [
+          Text(
+            "$name",
+            style: TextStyle(
+              fontSize: 36.0,
+              fontFamily: "proxima",
+            ),
+          ),
+           ElevatedButton(
+               onPressed: (){
+                 name = "Desi programmer";
+                 setState(() {
 
+                 });
+                 print(name);
+               },
+
+               child: Text(
+                 "Change Name",
+               ),
+           )
+
+        ],
       ),
     );
   }
 }
+
+
+
